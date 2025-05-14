@@ -23,8 +23,8 @@ namespace ClientApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Welcome to app calories!");
-            //test
+            MessageBox.Show("Welcome to app calories!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
         }
     }
 }
