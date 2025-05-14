@@ -9,7 +9,8 @@
     <Grid>
         <DockPanel>
         <TextBox DockPanel.Dock="Top"></TextBox>
-        <Button Click="Button_Click" FontSize="30">Welcome</Button>
+        <Button Click="Button_Click" FontSize="30" DockPanel.Dock="Top">Welcome</Button>
+            <ListBox></ListBox>
         </DockPanel>
     </Grid>
 </Window>
