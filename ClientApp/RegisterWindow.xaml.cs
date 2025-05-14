@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ClientApp
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for RegisterWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class RegisterWindow : Window
     {
-        public LoginWindow()
+        public RegisterWindow()
         {
             InitializeComponent();
         }
@@ -39,26 +39,27 @@ namespace ClientApp
             Close();
         }
 
-        private void Login_Button(object sender, RoutedEventArgs e)
-        {
-            // тут зрівнюєм з логином і хешириваним паролем з бази даних і після відправляєм 
-        }
-
-        private void Register_Button(object sender, RoutedEventArgs e)
-        {
-            RegisterWindow registerWindow = new();
-            registerWindow.Show();
-            this.Close();
-        }
-
         private void ThemeButton_IsChecked(object sender, RoutedEventArgs e)
         {
+            // тут реалізувати зміну теми
             if (LightRadioButton.IsChecked == true)
             {
                 Background = new SolidColorBrush(Colors.White);
                 Foreground = new SolidColorBrush(Colors.Black);
             }
+        }
 
+        private void Register_Button(object sender, RoutedEventArgs e)
+        {
+            // тут реалізувати реєстрацію 
+            // зберігати дані юзернейм,хеширований пароль,почта в базі даних
+        }
+
+        private void Login_Button(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginwindow = new();
+            loginwindow.Show();
+            this.Close();
         }
     }
 }
