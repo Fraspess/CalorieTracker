@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -51,6 +52,11 @@ namespace ClientApp
 
         private void Register_Button(object sender, RoutedEventArgs e)
         {
+            Regex regex = new(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if(!regex.IsMatch(EmailTextBox.Text))
+            {
+                MessageBox.Show("Invalid gmail format","Error",MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             // тут реалізувати реєстрацію 
             // зберігати дані юзернейм,хеширований пароль,почта в базі даних
         }

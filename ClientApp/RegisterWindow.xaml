@@ -66,8 +66,8 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="1" Content="Login:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                    <TextBox Grid.Row="2" Name="LoginTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="300"/>
+                    <Label Grid.Row="1" Content="Email:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox Grid.Row="2" Name="EmailTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="300"/>
 
                     <Label Grid.Row="3" Content="Password:" HorizontalContentAlignment="Center"/>
                     <PasswordBox Grid.Row="4" Name="PasswordTextBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="300"/>
