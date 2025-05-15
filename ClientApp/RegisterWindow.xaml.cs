@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FoodDataBase;
+using FoodDataBase.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace ClientApp
     /// </summary>
     public partial class RegisterWindow : Window
     {
+        CalorieAppDB context;
         public RegisterWindow()
         {
             InitializeComponent();
+            context = new CalorieAppDB();
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -52,13 +56,70 @@ namespace ClientApp
 
         private void Register_Button(object sender, RoutedEventArgs e)
         {
-            Regex regex = new(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            if(!regex.IsMatch(EmailTextBox.Text))
+            string email = EmailTextBox.Text.Trim();
+            string password = PasswordTextBox.Password;
+            string confirmPassword = ConfirmPasswordTextBox.Password;
+            if(!ValidateInput(email,password,confirmPassword))
             {
-                MessageBox.Show("Invalid gmail format","Error",MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            // тут реалізувати реєстрацію 
-            // зберігати дані юзернейм,хеширований пароль,почта в базі даних
+
+            try
+            {
+                var user = context.Users.FirstOrDefault(u => u.Gmail == email);
+                if(user != null)
+                {
+                    MessageBox.Show("This gmail is alredy taken","Error",MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                // хешуємо пароль и записуємо в базу даних нового користувача
+                var hashPassword = PasswordHasher.HashPassword(password);
+                context.Users.Add(new User
+                {
+                    Gmail = email,
+                    PasswordHash = hashPassword 
+                });
+                context.SaveChanges();
+                MessageBox.Show("Successfully registered!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                LoginWindow loginWindow = new();
+                loginWindow.Show();
+                this.Close();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+
+
+
+        }
+
+        private bool ValidateInput(string email, string password, string confirmPassword)
+        {
+            if (string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(password) ||
+                string.IsNullOrWhiteSpace(confirmPassword))
+            {
+                MessageBox.Show("Please fill all fields", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if (!Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+            {
+                MessageBox.Show("Invalid gmail format", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if (password != confirmPassword)
+            {
+                MessageBox.Show("Passwords do not match", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            return true;
         }
 
         // старий варіант з кнопкою

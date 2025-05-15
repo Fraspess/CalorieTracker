@@ -1,7 +1,7 @@
 ﻿using FoodDataBase.Entities;
 using Microsoft.EntityFrameworkCore;
 
-public class AppDbContext : DbContext
+public class CalorieAppDB : DbContext
 {
     public DbSet<Food> Foods { get; set; }
     
@@ -9,8 +9,9 @@ public class AppDbContext : DbContext
 
     public DbSet<User> Users { get; set; }
 
-    public AppDbContext()
+    public CalorieAppDB()
     {
+
         this.Database.EnsureCreated();
     }
 
@@ -18,7 +19,7 @@ public class AppDbContext : DbContext
     {
         optionsBuilder.UseSqlServer(@"
                                          Data Source = FRASP\SQLEXPRESS;
-                                         Initial Catalog = Company_PD_421;
+                                         Initial Catalog = CalorieAppDB;
                                          Integrated Security = True;
                                          Connect Timeout = 2;
                                          Encrypt = False;

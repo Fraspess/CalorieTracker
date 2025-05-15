@@ -7,10 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DockPanel>
-        <TextBox DockPanel.Dock="Top"></TextBox>
-        <Button Click="Button_Click" FontSize="30" DockPanel.Dock="Top">Welcome</Button>
-            <ListBox></ListBox>
-        </DockPanel>
+
     </Grid>
 </Window>
