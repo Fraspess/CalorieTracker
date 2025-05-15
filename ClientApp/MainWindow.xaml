@@ -1,12 +1,11 @@
-﻿<Window x:Class="ClientApp.MainWindow"
+﻿<Window x:Class="FavoritesClient.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ClientApp"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Click="Button_Click" FontSize="30">Welcome</Button>
-    </Grid>
+        Title="Favorites Client" Height="250" Width="400">
+    <StackPanel Margin="10">
+        <TextBox Name="FoodInput" />
+        <Button Content="Add to Favorites" Click="Add_Click" Margin="0,10" FontFamily="Consolas" FontWeight="Heavy" Background="#3ac24e"/>
+        <Button Content="Show Favorites" Click="Get_Click" FontFamily="Consolas" FontWeight="Heavy" Background="#3ac24e"/>
+        <ListBox Name="FavoritesList" Height="100" Margin="0,10" FontFamily="Consolas" FontWeight="Heavy"/>
+    </StackPanel>
 </Window>

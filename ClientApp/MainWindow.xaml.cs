@@ -1,31 +1,51 @@
-﻿using System.Text;
+﻿using System;
+using System.Net.Sockets;
+using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace ClientApp
+namespace FavoritesClient
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow() => InitializeComponent();
+
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
+            string food = FoodInput.Text;
+            if (!string.IsNullOrWhiteSpace(food))
+            {
+                SendRequest("ADD:" + food);
+                FoodInput.Clear();
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Get_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Welcome to app calories!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            MessageBox.Show("DDDDDD");
+            string result = SendRequest("GET");
+            FavoritesList.Items.Clear();
+            foreach (string item in result.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                FavoritesList.Items.Add(item.Trim());
+        }
 
+        private string SendRequest(string message)
+        {
+            try
+            {
+                using TcpClient client = new TcpClient("127.0.0.1", 5000);
+                NetworkStream stream = client.GetStream();
+
+                byte[] data = Encoding.UTF8.GetBytes(message);
+                stream.Write(data, 0, data.Length);
+
+                byte[] buffer = new byte[1024];
+                int read = stream.Read(buffer, 0, buffer.Length);
+                return Encoding.UTF8.GetString(buffer, 0, read);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return "";
+            }
         }
     }
 }
