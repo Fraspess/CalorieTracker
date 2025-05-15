@@ -16,15 +16,17 @@ namespace ClientApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        // айди юзера передаем як аргуемент mainwindow
+        int UserId;
+        public MainWindow(int id)
         {
             InitializeComponent();
+            UserId = id;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Welcome to app calories!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            MessageBox.Show("DDDDDD");
+
 
         }
     }
