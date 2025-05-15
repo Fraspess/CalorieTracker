@@ -22,6 +22,8 @@
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Cascadia Code"/>
         </Style>
+
+
     </Window.Resources>
 
     <Grid >
@@ -52,7 +54,7 @@
                 <RadioButton GroupName="ThemeButtons" Content="Light" Checked="ThemeButton_IsChecked" IsChecked="True" Name="LightRadioButton"/>
             </StackPanel>
 
-            <Image Source="/logo.png" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="90"/>
+            <Image Source="/logo.png" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" />
             <TextBlock Text="Calorie Tracker" Grid.Row="1" TextAlignment="Center" FontSize="25" FontFamily="Cascadia Code"/>
                 
             <DockPanel Grid.Row="2" Margin="20">
@@ -67,15 +69,16 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="1" Content="Email:" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Label Grid.Row="1" Content="Email:" Margin="0,10,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                     <TextBox Grid.Row="2" Name="EmailTextBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="300"/>
 
-                    <Label Grid.Row="3" Content="Password:" HorizontalContentAlignment="Center"/>
+                    <Label Grid.Row="3" Content="Password:" HorizontalContentAlignment="Center" Margin="0,10,0,0"/>
                     <PasswordBox Grid.Row="4" Name="PasswordTextBox" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="300"/>
 
-                    <Button Grid.Row="5" Click="Login_Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Content="Login" FontFamily="Cascadia Code"/>
+                    <Button Grid.Row="5" Click="Login_Button" Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Content="Login" FontFamily="Cascadia Code"/>
 
-                    <Button Grid.Row="6" Click="Register_Button" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Haven't registered yet? Register now" FontFamily="Cascadia Code" />
+                    <!--<Button Grid.Row="6" Click="Register_Button" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Haven't registered yet?&#10;Register now" FontFamily="Cascadia Code" Height="40" />-->
+                    <TextBlock Grid.Row="6" MouseLeftButtonDown="RegisterNow_TextBlock_Clicked" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="Haven't registered yet?&#10;Register now" FontFamily="Cascadia Code" Height="40" TextWrapping="Wrap" Foreground="Gray" TextDecorations="Underline" Cursor="Hand"/>
 
                 </Grid>
             </DockPanel>

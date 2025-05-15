@@ -44,12 +44,14 @@ namespace ClientApp
             // тут зрівнюєм з логином і хешириваним паролем з бази даних і після відправляєм 
         }
 
-        private void Register_Button(object sender, RoutedEventArgs e)
-        {
-            RegisterWindow registerWindow = new();
-            registerWindow.Show();
-            this.Close();
-        }
+
+        // старий варіант з кнопкою
+        //private void Register_Button(object sender, RoutedEventArgs e)
+        //{
+        //    RegisterWindow registerWindow = new();
+        //    registerWindow.Show();
+        //    this.Close();
+        //}
 
         private void ThemeButton_IsChecked(object sender, RoutedEventArgs e)
         {
@@ -59,6 +61,13 @@ namespace ClientApp
                 Foreground = new SolidColorBrush(Colors.Black);
             }
 
+        }
+
+        private void RegisterNow_TextBlock_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            RegisterWindow registerWindow = new();
+            registerWindow.Show();
+            this.Close();   
         }
     }
 }

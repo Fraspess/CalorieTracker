@@ -61,7 +61,15 @@ namespace ClientApp
             // зберігати дані юзернейм,хеширований пароль,почта в базі даних
         }
 
-        private void Login_Button(object sender, RoutedEventArgs e)
+        // старий варіант з кнопкою
+        //private void Login_Button(object sender, RoutedEventArgs e)
+        //{
+        //    LoginWindow loginwindow = new();
+        //    loginwindow.Show();
+        //    this.Close();
+        //}
+
+        private void LoginNow_TextBlock_Clicked(object sender, MouseButtonEventArgs e)
         {
             LoginWindow loginwindow = new();
             loginwindow.Show();
