@@ -11,6 +11,5 @@ namespace FoodDataBase
         public int FoodId { get; set; }
         public string? FoodName { get; set; }
         public int CaloriesPer100g { get; set; }
-        public string? CodeLink { get; set; }
     }
 }

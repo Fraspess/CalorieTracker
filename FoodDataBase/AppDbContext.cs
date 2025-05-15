@@ -13,9 +13,9 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Food>().HasData(
-            new Food { FoodId = 1, FoodName = "Apple", CaloriesPer100g = 52, CodeLink = "https://example.com/apple" },
-            new Food { FoodId = 2, FoodName = "Banana", CaloriesPer100g = 89, CodeLink = "https://example.com/banana" },
-            new Food { FoodId = 3, FoodName = "Tomato", CaloriesPer100g = 18, CodeLink = "https://example.com/tomato" }
+            new Food { FoodId = 1, FoodName = "Apple", CaloriesPer100g = 52},
+            new Food { FoodId = 2, FoodName = "Banana", CaloriesPer100g = 89},
+            new Food { FoodId = 3, FoodName = "Tomato", CaloriesPer100g = 18}
         );
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Linq;
 
-class Program
+namespace FoodDataBase;
+
+public class Class1
 {
-    static void Main()
+    public static void Main(string[] args)
     {
         using var db = new AppDbContext();
-        db.Database.EnsureCreated(); 
+        db.Database.EnsureCreated();
 
         var allFoods = db.Foods.ToList();
         foreach (var food in allFoods)
