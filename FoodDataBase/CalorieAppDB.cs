@@ -17,8 +17,10 @@ public class CalorieAppDB : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+
+        // міняйте на своє тут
         optionsBuilder.UseSqlServer(@"
-                                         Data Source = DESKTOP-NTINS30;
+                                         Data Source = FRASP\SQLEXPRESS;
                                          Initial Catalog = CalorieAppDB;
                                          Integrated Security = True;
                                          Connect Timeout = 2;
