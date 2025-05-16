@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -54,9 +55,21 @@ namespace ClientApp
                 ? CalorieCalculator.Goal.LoseWeight
                 : CalorieCalculator.Goal.GainWeight;
 
-            double weight = double.Parse(WeightTextBox.Text);
-            double height = double.Parse(HeightTextBox.Text);
-            int age = int.Parse(AgeTextBox.Text);
+            bool isWeightValid = double.TryParse(WeightTextBox.Text, out double weight);
+            bool isHeightValid = double.TryParse(HeightTextBox.Text, out double height);
+            bool isAgeValid = int.TryParse(AgeTextBox.Text, out int age);
+
+            if (!isWeightValid || !isHeightValid || !isAgeValid)
+            {
+                MessageBox.Show("Please enter valid numeric values for weight, height, and age.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (weight <= 0 || height <= 0 || age <= 0)
+            {
+                MessageBox.Show("Values must be greater than zero.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             var calculator = new CalorieCalculator(gender, weight, height, age, goal);
             double result = calculator.Calculate();
