@@ -15,11 +15,13 @@ namespace ClientApp
     public partial class MainWindow : Window
     {
         int UserId;
-        public MainWindow(int id)
+        string UserGmail;
+        public MainWindow(int id,string gmail)
         {
             InitializeComponent();
             UserId = id;
-            MessageBox.Show(UserId.ToString());
+            UserGmail = gmail;
+            MessageBox.Show($"Gmail : {gmail}\nId : {id}");
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -62,8 +64,7 @@ namespace ClientApp
             double result = calculator.Calculate();
 
             ResultTextBlock.Text = $"you need to eat {result:F0} kkal";
-
-
+                     
         }
 
     }
