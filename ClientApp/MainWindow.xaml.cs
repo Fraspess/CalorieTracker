@@ -9,20 +9,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Linq;
+using System.Collections.ObjectModel;
+using PropertyChanged;
 
 namespace ClientApp
 {
-   
+
     public partial class MainWindow : Window
     {
+        //FoodInfo model;
         int UserId;
         string UserGmail;
-        public MainWindow(int id,string gmail)
+        CalorieAppDB context;
+        public MainWindow(int id, string gmail)
         {
             InitializeComponent();
+            context = new CalorieAppDB();
             UserId = id;
             UserGmail = gmail;
             MessageBox.Show($"Gmail : {gmail}\nId : {id}");
+
+
+            //this.DataContext = model;
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -77,8 +86,40 @@ namespace ClientApp
             double result = calculator.Calculate();
 
             ResultTextBlock.Text = $"you need to eat {result:F0} kkal";
-                     
+
         }
 
+        private void FindFood_TextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+            string name = FindFoodTextBox.Text;
+
+            var products = context.Foods.ToList().Where(x => x.Name.ToLower().Contains(name.ToLower()));
+
+            //var products = context.Foods.ToList();
+
+            FoodDataGrid.ItemsSource = products;
+
+        }
     }
+
+    //[AddINotifyPropertyChangedInterface]
+    //public class FoodInfo
+    //{
+    //    public ObservableCollection<FoodModel> foods { get; set; }
+
+    //    public FoodInfo(string Name,string CaloriesPer100g)
+    //    {
+    //        foods = new();
+    //        foods.Add(new FoodModel { Name = Name, CaloriesPer100g = int.Parse(CaloriesPer100g) });
+    //    }
+    //}
+
+    //[AddINotifyPropertyChangedInterface]
+
+    //public class FoodModel
+    //{
+    //    public string Name { get; set; }
+
+    //    public int CaloriesPer100g { get; set; }
+    //}
 }
