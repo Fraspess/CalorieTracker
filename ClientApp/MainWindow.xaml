@@ -5,49 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None">
+        Title="MainWindow" Height="450" Width="800" WindowStyle="None"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        ResizeMode="CanResize"
+        AllowsTransparency="True"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Cascadia Code"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Border Background="white" Padding="10" BorderBrush="DarkGray" BorderThickness="1" Margin="10,40,550,250">
-            <StackPanel>
-                <TextBlock Text="Formula" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
-
-                <Label Content="Weight:"/>
-                <TextBox x:Name="WeightTextBox" Height="22" Width="200"/>
-
-                <Label Content="Height:"/>
-                <TextBox x:Name="HeightTextBox" Height="22" Width="200"/>
-
-                <Label Content="Age:"/>
-                <TextBox x:Name="AgeTextBox" Height="22" Width="200"/>
-
-                <Label Content="Gender:"/>
-                <ComboBox x:Name="GenderComboBox" SelectedIndex="0" Height="22" Width="200">
-                    <ComboBoxItem Content="Man"/>
-                    <ComboBoxItem Content="Women"/>
-                </ComboBox>
-
-                <Label Content="Goal:"/>
-                <ComboBox x:Name="GoalComboBox" SelectedIndex="0" Height="22" Width="200">
-                    <ComboBoxItem Content="Lose"/>
-                    <ComboBoxItem Content="Gain"/>
-                </ComboBox>
-
-                <Button Content="OK" Height="24" Margin="0,10,0,2" Width="200" Click="CalculateButton_Click"/>
-                <TextBlock x:Name="ResultTextBlock" Foreground="black" FontSize="12" TextAlignment="Center"/>
-            </StackPanel>
-        </Border>
-        <Border Background="Black" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="Border_MouseLeftButtonDown">
-            <DockPanel LastChildFill="True">
-                <TextBlock Text="Calorie Tracker" Foreground="White" VerticalAlignment="Center" Margin="10,0"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="_" Width="40" Click="Minimize_Button"/>
-                    <Button Content="X" Width="40" Click="Close_Button"/>
-                </StackPanel>
-            </DockPanel>
-        </Border>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Border Background="Black" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <DockPanel LastChildFill="True">
+                <TextBlock Text="Calorie Tracker" Foreground="White" VerticalAlignment="Center" Margin="10,0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <Button Content="_" Width="45" Click="Minimize_Button"/>
+                    <Button Content="⊞" Width="45" Click="Maximized_Button"/>
+                    <Button Content="X" Width="45" Click="Close_Button"/>
+
+
+                </StackPanel>
+            </DockPanel>
+        </Border>
+        <Grid Grid.Row="1">
+            <Border Background="White" Padding="10" BorderBrush="DarkGray" BorderThickness="1"
+            Margin="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel>
+                    <TextBlock Text="Formula" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+
+                    <Label Content="Weight:"/>
+                    <TextBox x:Name="WeightTextBox" Height="22" Width="200"/>
+
+                    <Label Content="Height:"/>
+                    <TextBox x:Name="HeightTextBox" Height="22" Width="200"/>
+
+                    <Label Content="Age:"/>
+                    <TextBox x:Name="AgeTextBox" Height="22" Width="200"/>
+
+                    <Label Content="Gender:"/>
+                    <ComboBox x:Name="GenderComboBox" SelectedIndex="0" Height="22" Width="200">
+                        <ComboBoxItem Content="Man"/>
+                        <ComboBoxItem Content="Women"/>
+                    </ComboBox>
+
+                    <Label Content="Goal:"/>
+                    <ComboBox x:Name="GoalComboBox" SelectedIndex="0" Height="22" Width="200">
+                        <ComboBoxItem Content="Lose"/>
+                        <ComboBoxItem Content="Gain"/>
+                    </ComboBox>
+
+                    <Button Content="OK" Height="24" Margin="0,10,0,2" Width="200" Click="CalculateButton_Click"/>
+                    <TextBlock x:Name="ResultTextBlock" Foreground="black" FontSize="12" TextAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </Window>
