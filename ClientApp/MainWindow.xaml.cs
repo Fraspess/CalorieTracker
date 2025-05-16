@@ -46,7 +46,7 @@ namespace ClientApp
 
         private void Maximized_Button(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Maximized;
+            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         }
 
         private void Close_Button(object sender, RoutedEventArgs e)
@@ -91,14 +91,35 @@ namespace ClientApp
 
         private void FindFood_TextBoxChanged(object sender, TextChangedEventArgs e)
         {
-            string name = FindFoodTextBox.Text;
 
-            var products = context.Foods.ToList().Where(x => x.Name.ToLower().Contains(name.ToLower()));
+            if(context != null)
+            {
+                string name = FindFoodTextBox.Text;
+                var products = context.Foods.ToList().Where(x => x.Name.ToLower().Contains(name.ToLower()));
 
-            //var products = context.Foods.ToList();
+                //var products = context.Foods.ToList();
 
-            FoodDataGrid.ItemsSource = products;
+                FoodDataGrid.ItemsSource = products;
+            }
 
+        }
+
+        private void FindFoodTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(FindFoodTextBox.Text))
+            {
+                FindFoodTextBox.Text = "Find food...";
+                FindFoodTextBox.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void FindFoodTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (FindFoodTextBox.Text == "Find food...")
+            {
+                FindFoodTextBox.Text = "";
+                FindFoodTextBox.Foreground = Brushes.Black;
+            }
         }
     }
 
