@@ -20,5 +20,10 @@ namespace FoodDataBase.Entities
         public int CaloriesPer100g { get; set; }
 
         public IEnumerable<FoodEntry> FoodEntries { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id} {Name} {CaloriesPer100g}";
+        }
     }
 }
