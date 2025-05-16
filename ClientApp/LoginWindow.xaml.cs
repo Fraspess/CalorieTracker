@@ -66,7 +66,7 @@ namespace ClientApp
                 {
                     // пишем що логін успішний і закриваєм це вікно і відкриваєм mainwindow
                     MessageBox.Show("Login successful", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    MainWindow mainWindow = new(id);
+                    MainWindow mainWindow = new(id,EmailTextBox.Text);
                     mainWindow.Show();
                     this.Close();
                 }
