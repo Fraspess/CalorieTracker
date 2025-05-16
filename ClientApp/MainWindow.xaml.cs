@@ -61,7 +61,7 @@ namespace ClientApp
             var calculator = new CalorieCalculator(gender, weight, height, age, goal);
             double result = calculator.Calculate();
 
-            ResultTextBlock.Text = $"you need {result:F0} kkal";
+            ResultTextBlock.Text = $"you need to eat {result:F0} kkal";
 
 
         }
