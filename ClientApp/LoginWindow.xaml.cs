@@ -27,8 +27,6 @@ namespace ClientApp
             InitializeComponent();
             context = new CalorieAppDB();
             var users = context.Users.ToList();
-
-
             
 
             //foreach(var user in users)
@@ -63,7 +61,7 @@ namespace ClientApp
                 int id = user.Id;
                 string password = PasswordTextBox.Password;
 
-                MessageBox.Show(user.PasswordHash);
+                //MessageBox.Show(user.PasswordHash);
                 if (PasswordHasher.VerifyPassword(password,user.PasswordHash))
                 {
                     // пишем що логін успішний і закриваєм це вікно і відкриваєм mainwindow
