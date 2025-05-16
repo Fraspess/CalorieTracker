@@ -35,8 +35,8 @@
             <DockPanel LastChildFill="True">
                 <TextBlock Text="Calorie Tracker" Foreground="White" VerticalAlignment="Center" Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="_" Width="40" Click="Minimize_Button"/>
-                    <Button Content="X" Width="40" Click="Close_Button"/>
+                    <Button Content="_" Width="45" Click="Minimize_Button"/>
+                    <Button Content="X" Width="45" Click="Close_Button"/>
                 </StackPanel>
             </DockPanel>
         </Border>

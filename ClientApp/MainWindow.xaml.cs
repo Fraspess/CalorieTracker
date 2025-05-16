@@ -36,6 +36,10 @@ namespace ClientApp
         {
             Close();
         }
+        private void Maximized_Button(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+        }
 
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
