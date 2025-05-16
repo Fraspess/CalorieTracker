@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None">
+        Title="MainWindow" Height="450" Width="800" WindowStyle="None"
+        ResizeMode="CanResize"
+        AllowsTransparency="True"
+        >
     <Grid>
         <Border Background="white" Padding="10" BorderBrush="DarkGray" BorderThickness="1" Margin="10,40,550,250">
             <StackPanel>
-                <TextBlock Text="Formula" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                <TextBlock Text="Enter your data" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
 
                 <Label Content="Weight:"/>
                 <TextBox x:Name="WeightTextBox" Height="22" Width="200"/>
@@ -40,8 +43,9 @@
             <DockPanel LastChildFill="True">
                 <TextBlock Text="Calorie Tracker" Foreground="White" VerticalAlignment="Center" Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="_" Width="40" Click="Minimize_Button"/>
-                    <Button Content="X" Width="40" Click="Close_Button"/>
+                    <Button Content="_" Width="45" Click="Minimize_Button"/>
+                    <Button Content="⊞" Width="45" Click="Maximized_Button"/>
+                    <Button Content="X" Width="45" Click="Close_Button"/>
                 </StackPanel>
             </DockPanel>
         </Border>
