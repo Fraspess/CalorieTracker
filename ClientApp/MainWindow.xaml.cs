@@ -22,11 +22,11 @@ namespace ClientApp
         {
             InitializeComponent();
             UserId = id;
+            MessageBox.Show(UserId.ToString());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
 
         }
     }
