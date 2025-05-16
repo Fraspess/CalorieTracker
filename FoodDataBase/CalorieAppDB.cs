@@ -18,14 +18,14 @@ public class CalorieAppDB : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(@"
-                                         Data Source = FRASP\SQLEXPRESS;
+                                         Data Source = DESKTOP-NTINS30;
                                          Initial Catalog = CalorieAppDB;
                                          Integrated Security = True;
                                          Connect Timeout = 2;
                                          Encrypt = False;
                                          Trust Server Certificate = True;
                                          Application Intent = ReadWrite;
-                                         Multi Subnet Failover = False" );
+                                         Multi Subnet Failover = False");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
