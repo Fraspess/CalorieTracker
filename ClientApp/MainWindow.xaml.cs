@@ -19,6 +19,7 @@ namespace ClientApp
         {
             InitializeComponent();
             UserId = id;
+            MessageBox.Show(UserId.ToString());
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -42,6 +43,7 @@ namespace ClientApp
                 ? CalorieCalculator.Gender.Male
                 : CalorieCalculator.Gender.Female;
 
+
             var goal = (GoalComboBox.SelectedIndex == 0)
                 ? CalorieCalculator.Goal.LoseWeight
                 : CalorieCalculator.Goal.GainWeight;
@@ -54,6 +56,8 @@ namespace ClientApp
             double result = calculator.Calculate();
 
             ResultTextBlock.Text = $"you need {result:F0} kkal";
+
+
         }
 
     }
