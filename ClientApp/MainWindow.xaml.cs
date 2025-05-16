@@ -32,6 +32,11 @@ namespace ClientApp
             WindowState = WindowState.Minimized;
         }
 
+        private void Maximized_Button(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+        }
+
         private void Close_Button(object sender, RoutedEventArgs e)
         {
             Close();
