@@ -91,9 +91,9 @@
 
                     <Label Grid.Row="1" Content="Food Database" HorizontalContentAlignment="Center" Margin="0,15,0,0" FontSize="25" FontFamily="Cascadia Code"/>
 
-                    <TextBox Margin="10,0,10,0" Grid.Row="2" Name="FindFoodTextBox" TextChanged="FindFood_TextBoxChanged" />
+                    <TextBox Margin="10,0,10,0" Grid.Row="2" Text="Find food..." FontSize="14" Foreground="Gray"  Name="FindFoodTextBox" TextChanged="FindFood_TextBoxChanged" LostFocus="FindFoodTextBox_LostFocus" GotFocus="FindFoodTextBox_GotFocus" />
 
-                    <DataGrid Grid.Row="3" Name="FoodDataGrid" AutoGenerateColumns="False" Margin="10">
+                    <DataGrid Grid.Row="3" Name="FoodDataGrid" AutoGenerateColumns="False" FontSize="15"  Margin="10">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Food Name" Binding="{Binding Name}" Width="*"/>
                             <DataGridTextColumn Header="Calories per 100 g" Binding="{Binding CaloriesPer100g}" Width="*"/>
