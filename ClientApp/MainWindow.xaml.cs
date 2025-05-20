@@ -13,15 +13,19 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using PropertyChanged;
 
+
 namespace ClientApp
 {
 
     public partial class MainWindow : Window
     {
+
+
+        public string UserGmail { get; set; }
         //FoodInfo model;
         int UserId;
-        string UserGmail;
         CalorieAppDB context;
+
         public MainWindow(int id, string gmail)
         {
             InitializeComponent();
@@ -30,6 +34,7 @@ namespace ClientApp
             UserGmail = gmail;
             MessageBox.Show($"Gmail : {gmail}\nId : {id}");
 
+            DataContext = this;
 
             //this.DataContext = model;
         }
@@ -92,7 +97,7 @@ namespace ClientApp
         private void FindFood_TextBoxChanged(object sender, TextChangedEventArgs e)
         {
 
-            if(context != null)
+            if (context != null)
             {
                 string name = FindFoodTextBox.Text;
                 var products = context.Foods.ToList().Where(x => x.Name.ToLower().Contains(name.ToLower()));
@@ -121,6 +126,19 @@ namespace ClientApp
                 FindFoodTextBox.Foreground = Brushes.Black;
             }
         }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProfilePopup.IsOpen = true;
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            var loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
+        }
+
     }
 
     //[AddINotifyPropertyChangedInterface]
