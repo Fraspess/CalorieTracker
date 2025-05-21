@@ -115,8 +115,8 @@
 
                     <DockPanel>
                         <StackPanel DockPanel.Dock="Right">
-                            <Button x:Name="ProfileButton" HorizontalAlignment="Right" Width="30" Height="30" Margin="0, 0, 5, 0" Background="Transparent" BorderBrush="{x:Null}" Click="ProfileButton_Click">
-                                <Image Source="/user.png" Width="20" Height="20" Margin="0, 5, 5, 0"/>
+                            <Button x:Name="ProfileButton" HorizontalAlignment="Right" Width="35" Height="35" Margin="0, 0, 10, 0" Background="Transparent" BorderBrush="{x:Null}" Click="ProfileButton_Click">
+                                <Image Source="/user.png" Width="30" Height="30"/>
                             </Button>
 
                             <Popup x:Name="ProfilePopup" Placement="Bottom" StaysOpen="False" PlacementTarget="{Binding ElementName=ProfileButton}">
