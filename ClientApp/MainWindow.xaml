@@ -67,49 +67,11 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Background="White" Padding="10" BorderBrush="DarkGray" BorderThickness="1"
-        Margin="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel >
-                    <TextBlock Text="Formula" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+            <Button Click="Calculator" Margin="0,742,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Content="calculator" FontFamily="Cascadia Code"/>
 
-                    <Label Content="Weight:"/>
-                    <TextBox x:Name="WeightTextBox" Height="22" Width="200" Background="White" Foreground="Black"/>
-
-                    <Label Content="Height:"/>
-                    <TextBox x:Name="HeightTextBox" Height="22" Width="200" Background="White" Foreground="Black"/>
-
-                    <Label Content="Age:"/>
-                    <TextBox x:Name="AgeTextBox" Height="22" Width="200" Background="White" Foreground="Black"/>
-
-                    <Label Content="Gender:"/>
-                    <ComboBox x:Name="GenderComboBox" SelectedIndex="0" Height="22" Width="200" Foreground="Black">
-                        <ComboBoxItem Content="Man" Background="LightGray" Foreground="Black"/>
-                        <ComboBoxItem Content="Women" Background="LightGray" Foreground="Black"/>
-                    </ComboBox>
-
-                    <Label Content="Activity Level:"/>
-                    <ComboBox x:Name="ActivityLevelComboBox" SelectedIndex="0" Height="22" Width="200" Foreground="Black">
-                        <ComboBoxItem Content="Sedentary" Background="LightGray" Foreground="Black"/>
-                        <ComboBoxItem Content="Lightly Active" Background="LightGray" Foreground="Black"/>
-                        <ComboBoxItem Content="Moderately Active" Background="LightGray" Foreground="Black"/>
-                        <ComboBoxItem Content="Very Active" Background="LightGray" Foreground="Black"/>
-                        <ComboBoxItem Content="Extremely Active" Background="LightGray" Foreground="Black"/>
-                    </ComboBox>
-
-                    <Label Content="Goal:"/>
-                    <ComboBox x:Name="GoalComboBox" SelectedIndex="0" Height="22" Width="200" Foreground="Black">
-                        <ComboBoxItem Content="Lose" Background="LightGray" Foreground="Black"/>
-                        <ComboBoxItem Content="Gain" Background="LightGray" Foreground="Black"/>
-                    </ComboBox>
-
-                    <Button Content="OK" FontFamily="Cascadia Code" Height="24" Margin="0,10,0,2" Width="200" Background="#4CAF50" Click="CalculateButton_Click" />
-                    <TextBlock FontFamily="Cascadia Code" Margin="10" x:Name="ResultTextBlock" Foreground="black" FontSize="12" TextAlignment="Center"/>
-                </StackPanel>
-            </Border>
 
             <DockPanel Background="White" Grid.Column="1">
                 <Grid>
-
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -138,6 +100,7 @@
                             </Popup>
                         </StackPanel>
                     </DockPanel>
+
 
                     <Label  Grid.Row="1" Content="Food Database" HorizontalContentAlignment="Center" Margin="0,15,0,15" FontSize="25" FontFamily="Cascadia Code"/>
 
