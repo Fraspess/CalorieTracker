@@ -20,7 +20,7 @@ public class CalorieAppDB : DbContext
 
         // міняйте на своє тут
         optionsBuilder.UseSqlServer(@"
-                                         Data Source = (localdb)\MSSQLLocalDB;
+                                         Data Source = THEBEST\SQLEXPRESS;
                                          Initial Catalog = CalorieAppDB;
                                          Integrated Security = True;
                                          Connect Timeout = 2;

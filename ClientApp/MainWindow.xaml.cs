@@ -1,4 +1,7 @@
-﻿using System.Globalization;
+﻿using PropertyChanged;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,9 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Linq;
-using System.Collections.ObjectModel;
-using PropertyChanged;
+using static ClientApp.CalorieCalculator;
 
 
 namespace ClientApp
@@ -65,13 +66,14 @@ namespace ClientApp
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
             var gender = (GenderComboBox.SelectedIndex == 0)
-                ? CalorieCalculator.Gender.Male
-                : CalorieCalculator.Gender.Female;
-
+            ? CalorieCalculator.Gender.Male
+            : CalorieCalculator.Gender.Female;
 
             var goal = (GoalComboBox.SelectedIndex == 0)
                 ? CalorieCalculator.Goal.LoseWeight
                 : CalorieCalculator.Goal.GainWeight;
+
+            var activityLevel = (ActivityLevel)(ActivityLevelComboBox.SelectedIndex + 1);
 
             bool isWeightValid = double.TryParse(WeightTextBox.Text, out double weight);
             bool isHeightValid = double.TryParse(HeightTextBox.Text, out double height);
@@ -89,10 +91,10 @@ namespace ClientApp
                 return;
             }
 
-            var calculator = new CalorieCalculator(gender, weight, height, age, goal);
+            var calculator = new CalorieCalculator(gender, weight, height, age, goal, activityLevel);
             double result = calculator.Calculate();
 
-            ResultTextBlock.Text = $"you need to eat {result:F0} kkal";
+            ResultTextBlock.Text = $"You need to eat {result:F0} kcal";
 
         }
 

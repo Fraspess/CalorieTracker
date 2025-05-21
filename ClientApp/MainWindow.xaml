@@ -87,6 +87,15 @@
                         <ComboBoxItem Content="Women" Background="LightGray" Foreground="Black"/>
                     </ComboBox>
 
+                    <Label Content="Activity Level:"/>
+                    <ComboBox x:Name="ActivityLevelComboBox" SelectedIndex="0" Height="22" Width="200" Foreground="Black">
+                        <ComboBoxItem Content="Sedentary" Background="LightGray" Foreground="Black"/>
+                        <ComboBoxItem Content="Lightly Active" Background="LightGray" Foreground="Black"/>
+                        <ComboBoxItem Content="Moderately Active" Background="LightGray" Foreground="Black"/>
+                        <ComboBoxItem Content="Very Active" Background="LightGray" Foreground="Black"/>
+                        <ComboBoxItem Content="Extremely Active" Background="LightGray" Foreground="Black"/>
+                    </ComboBox>
+
                     <Label Content="Goal:"/>
                     <ComboBox x:Name="GoalComboBox" SelectedIndex="0" Height="22" Width="200" Foreground="Black">
                         <ComboBoxItem Content="Lose" Background="LightGray" Foreground="Black"/>
