@@ -32,9 +32,11 @@ namespace ClientApp
             context = new CalorieAppDB();
             UserId = id;
             UserGmail = gmail;
-            MessageBox.Show($"Gmail : {gmail}\nId : {id}");
+            //MessageBox.Show($"Gmail : {gmail}\nId : {id}");
 
             DataContext = this;
+
+            FoodDataGrid.ItemsSource = context.Foods.ToList();
 
             //this.DataContext = model;
         }
@@ -96,6 +98,10 @@ namespace ClientApp
 
         private void FindFood_TextBoxChanged(object sender, TextChangedEventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(FindFoodTextBox.Text) || FindFoodTextBox.Text == "Find food...")
+            {
+                return;
+            }         
 
             if (context != null)
             {
@@ -114,7 +120,7 @@ namespace ClientApp
             if (string.IsNullOrWhiteSpace(FindFoodTextBox.Text))
             {
                 FindFoodTextBox.Text = "Find food...";
-                FindFoodTextBox.Foreground = Brushes.Gray;
+                FindFoodTextBox.Foreground = Brushes.Gray; 
             }
         }
 

@@ -19,6 +19,12 @@ namespace FoodDataBase.Entities
 
         public int CaloriesPer100g { get; set; }
 
+        public decimal CarbsPer100g { get; set; }
+
+        public decimal ProteinPer100g { get; set; }
+
+        public decimal FatsPer100g { get; set; }
+
         public IEnumerable<FoodEntry> FoodEntries { get; set; }
 
         public override string ToString()
