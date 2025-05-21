@@ -63,39 +63,10 @@ namespace ClientApp
         }
 
 
-        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        private void Calculator(object sender, RoutedEventArgs e)
         {
-            var gender = (GenderComboBox.SelectedIndex == 0)
-            ? CalorieCalculator.Gender.Male
-            : CalorieCalculator.Gender.Female;
-
-            var goal = (GoalComboBox.SelectedIndex == 0)
-                ? CalorieCalculator.Goal.LoseWeight
-                : CalorieCalculator.Goal.GainWeight;
-
-            var activityLevel = (ActivityLevel)(ActivityLevelComboBox.SelectedIndex + 1);
-
-            bool isWeightValid = double.TryParse(WeightTextBox.Text, out double weight);
-            bool isHeightValid = double.TryParse(HeightTextBox.Text, out double height);
-            bool isAgeValid = int.TryParse(AgeTextBox.Text, out int age);
-
-            if (!isWeightValid || !isHeightValid || !isAgeValid)
-            {
-                MessageBox.Show("Please enter valid numeric values for weight, height, and age.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (weight <= 0 || height <= 0 || age <= 0)
-            {
-                MessageBox.Show("Values must be greater than zero.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            var calculator = new CalorieCalculator(gender, weight, height, age, goal, activityLevel);
-            double result = calculator.Calculate();
-
-            ResultTextBlock.Text = $"You need to eat {result:F0} kcal";
-
+            var calculatorWindow = new Calculate();
+            calculatorWindow.Show();
         }
 
         private void FindFood_TextBoxChanged(object sender, TextChangedEventArgs e)
