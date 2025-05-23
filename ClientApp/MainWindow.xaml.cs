@@ -393,11 +393,18 @@ namespace ClientApp
 
 
 
+    //[AddINotifyPropertyChangedInterface]
+    //public class FoodModel
+    //{
+    //    public string Name { get; set; }
+
+
         private void ClearTotal_Click(object sender, RoutedEventArgs e)
         {
             CaloriesProgressBar.Value = 0;
             CaloriesProgressBar.Foreground = new SolidColorBrush(Colors.Green);
         }
+
 
     }
 }
