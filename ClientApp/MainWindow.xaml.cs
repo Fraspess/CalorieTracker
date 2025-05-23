@@ -158,7 +158,6 @@ namespace ClientApp
     //}
 
     //[AddINotifyPropertyChangedInterface]
-
     //public class FoodModel
     //{
     //    public string Name { get; set; }
