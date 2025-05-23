@@ -50,7 +50,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border x:Name="TopBar" Background="#F1F1F3" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Border x:Name="TopBar" Background="#F1F1F3" Height="30" VerticalAlignment="Center" MouseLeftButtonDown="Border_MouseLeftButtonDown">
             <DockPanel LastChildFill="True">
                 <TextBlock Text="Calorie Tracker" Foreground="Black" VerticalAlignment="Center" Margin="10,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -64,7 +64,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Border  Background="White" Padding="10" BorderBrush="DarkGray" BorderThickness="1" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
                 <StackPanel>
                     <TextBlock Text="Formula" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5"/>
@@ -101,6 +101,49 @@
 
                     <Button Content="OK" FontFamily="Cascadia Code" Height="24" Margin="0,10,0,2" Width="200" Background="#4CAF50" Click="CalculateButton_Click" />
                     <TextBlock FontFamily="Cascadia Code" Margin="10" x:Name="ResultTextBlock" Foreground="black" FontSize="12" TextAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" Padding="10" BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,36,37,0">
+                <StackPanel Margin="10">
+                    <Label Content="Food Name:" FontFamily="Cascadia Code"/>
+                    <TextBox x:Name="FoodNameTextBox" Margin="0,0,0,10" FontFamily="Cascadia Code"/>
+
+                    <Label Content="Calories per 100g:" FontFamily="Cascadia Code"/>
+                    <TextBox x:Name="CaloriesTextBox" Margin="0,0,0,10" FontFamily="Cascadia Code"/>
+
+                    <Label Content="Protein per 100g:" FontFamily="Cascadia Code"/>
+                    <TextBox x:Name="ProteinTextBox" Margin="0,0,0,10" FontFamily="Cascadia Code"/>
+
+                    <Label Content="Carbs per 100g:" FontFamily="Cascadia Code"/>
+                    <TextBox x:Name="CarbsTextBox" Margin="0,0,0,10" FontFamily="Cascadia Code"/>
+
+                    <Label Content="Fats per 100g:" FontFamily="Cascadia Code"/>
+                    <TextBox x:Name="FatsTextBox" Margin="0,0,0,10" FontFamily="Cascadia Code"/>
+
+                    <Button Content="Add New Food" Click="AddNewFood_Click" Background="#4CAF50" Foreground="White" FontFamily="Cascadia Code" Padding="10,5"/>
+                </StackPanel>
+            </Border>
+
+
+            <GroupBox Header="Add Food Entry" Margin="10,0,0,128" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                <StackPanel Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Label Content="Select Food:" FontFamily="Cascadia Code"/>
+                    <ComboBox x:Name="FoodSelectionComboBox" DisplayMemberPath="Name" SelectedValuePath="Id" Margin="0,0,0,10" FontFamily="Cascadia Code"/>
+
+                    <Label Content="Grams:" FontFamily="Cascadia Code"/>
+                    <TextBox x:Name="GramsInputTextBox" Margin="0,0,0,10" FontFamily="Cascadia Code"/>
+
+                    <Button Content="Add Entry" Click="AddFoodEntry_Click" Background="#FF9800" Foreground="White" FontFamily="Cascadia Code" Padding="10,5"/>
+                </StackPanel>
+            </GroupBox>
+
+            <Border Background="White" Padding="10" BorderBrush="DarkGray" BorderThickness="1" Height="113" VerticalAlignment="Top" Margin="0,647,0,0">
+                <StackPanel Margin="0,-11,0,0">
+                    <TextBlock Text="Daily Calories Progress:" FontFamily="Cascadia Code" Margin="0,0,0,5"/>
+                    <ProgressBar x:Name="CaloriesProgressBar" Height="20" Maximum="100" Minimum="0" Value="0"/>
+                    <TextBlock x:Name="CaloriesProgressText" Text="0 / 0 calories" FontFamily="Cascadia Code" Margin="0,5,0,0"/>
+                    <Button Content="Clear Daily Target" Click="ClearTotal_Click" Background="#FF5252" Foreground="White" FontFamily="Cascadia Code" Padding="10,5" Margin="0,10,0,0"/>
                 </StackPanel>
             </Border>
 
