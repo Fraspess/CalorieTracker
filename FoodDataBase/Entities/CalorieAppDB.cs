@@ -135,7 +135,8 @@ public class CalorieAppDB : DbContext
             new Food { Id = 82, Name = "Apple juice", CaloriesPer100g = 46, CarbsPer100g = 11.3m, ProteinPer100g = 0.1m, FatsPer100g = 0.1m },
             new Food { Id = 83, Name = "Coffee (black)", CaloriesPer100g = 0, CarbsPer100g = 0, ProteinPer100g = 0, FatsPer100g = 0 },
             new Food { Id = 84, Name = "Green tea", CaloriesPer100g = 0, CarbsPer100g = 0, ProteinPer100g = 0, FatsPer100g = 0 },
-            new Food { Id = 85, Name = "Beer (regular)", CaloriesPer100g = 43, CarbsPer100g = 3.6m, ProteinPer100g = 0.5m, FatsPer100g = 0m }
+            new Food { Id = 85, Name = "Beer (regular)", CaloriesPer100g = 43, CarbsPer100g = 3.6m, ProteinPer100g = 0.5m, FatsPer100g = 0m },
+            new Food { Id = 86, Name = "Етио", CaloriesPer100g = 150, CarbsPer100g = 30.0m, ProteinPer100g = 2.5m, FatsPer100g = 1.2m }
         );
     }
 
