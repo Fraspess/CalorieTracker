@@ -366,15 +366,6 @@ namespace ClientApp
                 if (totalCalories > targetCalories)
                 {
                     CaloriesProgressBar.Foreground = new SolidColorBrush(Colors.Red);
-                    var entriesToRemove = FoodList.Where(f => f.Date.Date == today).ToList();
-                    foreach (var entry in entriesToRemove)
-                    {
-                        context.FoodEntries.Remove(entry);
-                        FoodList.Remove(entry);
-                    }
-                    context.SaveChanges();
-                    CaloriesProgressBar.Value = 0;
-                    CaloriesProgressText.Text = $"0 / {targetCalories:F0} calories";
                 }
                 else if (progressPercentage > 90)
                 {
@@ -395,8 +386,20 @@ namespace ClientApp
 
         private void ClearTotal_Click(object sender, RoutedEventArgs e)
         {
+            var today = DateTime.Today;
+
+            // Видалити всі записи за сьогодні
+            var todaysEntries = FoodList.Where(f => f.Date.Date == today).ToList();
+            foreach (var entry in todaysEntries)
+            {
+                FoodList.Remove(entry);
+            }
+
+            // Оновити прогрес
             CaloriesProgressBar.Value = 0;
             CaloriesProgressBar.Foreground = new SolidColorBrush(Colors.Green);
+            CaloriesProgressText.Text = $"0 / {targetCalories:F0} calories";
+
         }
 
     }
